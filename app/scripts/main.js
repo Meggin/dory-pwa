@@ -88,7 +88,7 @@ var answersForQuestionButton = document.getElementById('answers');
 var listeningFirebaseRefs = [];
 
 window.onload = function() {
-  
+
   const authContainer = document.getElementById('splash-page-section');
   const allQuestionsSection = document.getElementById('all-questions-section');
   const signInWithGoogleButton = document.getElementById('sign-in-with-google-button');
@@ -97,9 +97,9 @@ window.onload = function() {
 
   //Triggers every time user signs in or signs out.
   firebase.auth().onAuthStateChanged(function(auth) {
-    
+
     var auth = firebase.auth().currentUser;
-    
+
     //User authenticated and active session begins.
     if (auth != null) {
       authContainer.style.display =  'none';
@@ -159,7 +159,7 @@ class App {
 
     //**Todo: Indicate which data is getting retrieved.
     this.activeRef = null;
-    
+
     //DOM elements.
     this.addQuestionButton = document.getElementById('add-question');
     this.questionTitleInput = document.getElementById('new-question-title');
@@ -193,7 +193,7 @@ class App {
   }
 
   attachDOMListeners() {
-    
+
     // Shows a user's list of questions.
     this.myQuestionsMenu.addEventListener('click', function() {
       this.showSection(userQuestionsSection, myQuestionsMenu);
@@ -212,7 +212,7 @@ class App {
     this.addQuestionButton.addEventListener('click', function() {
       this.showSection(addQuestionSection);
     }.bind(this));
-    
+
     //Submit a new question.
     this.submitQuestionForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -225,7 +225,7 @@ class App {
       questionDescriptionInput.value = '';
       questionTitleInput.value = '';
     }.bind(this));
-    
+
     // Submit a new answer for a question.
     this.submitAnswerForm.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -263,7 +263,7 @@ class App {
 
     // Get a key for new question.
     var newQuestionKey = firebase.database().ref().child('questions').push().key;
- 
+
     // Write the new question's data in questions and user-questions lists.
     var updates = {};
     updates['/questions/' + newQuestionKey] = questionData;
@@ -283,14 +283,19 @@ class App {
     //Clear out old DOM elements.
     var containerElement = sectionElement.getElementsByClassName('questions-container')[0];
     containerElement.innerHTML = '';
-    questionRef.limitToLast(25).on('child_added', function(data) {
-      var username = data.val().username || 'Anonymous';
-      containerElement.insertBefore(
-        this.createQuestionElement(data.key, data.val().title, data.val().questionBody, username, data.val().uid),
-        containerElement.firstChild)
+    questionRef.limitToLast(25).once('value', function(data) {
+      console.log('once value', data.val());
+      var questions = data.val();
+      Object.keys(questions).forEach(function(questionKey) {
+        var questionData = questions[questionKey];
+        var username = questionData.username || 'Anonymous';
+        containerElement.insertBefore(
+          this.createQuestionElement(questionKey, questionData.title, data.val().questionBody, username, data.val().uid),
+          containerElement.firstChild)
+      }.bind(this))
     }.bind(this));
   }
-  
+
   // Create question element.
   createQuestionElement(questionId, title, questionBody, username, uid) {
     var uid = firebase.auth().currentUser.uid;
@@ -310,7 +315,7 @@ class App {
             '<div class="star-count">0</div>' +
           '</span>' +
           '<button id="answers" class="answers mdl-button mdl-js-button mdl-button--icon">' +
-             '<i class="material-icons">comment</i>' + 
+             '<i class="material-icons">comment</i>' +
           '</button>' +
       '</li>';
 
@@ -356,7 +361,7 @@ class App {
 
     unStar.onclick = onStarClicked.bind(this);
     star.onclick = onStarClicked.bind(this);
-    
+
     // Open list of actions for a question.
     var onAnswersClicked = function() {
       this.showSection(answersForQuestionSection);
@@ -369,7 +374,7 @@ class App {
 
     return questionElement;
   }
-   
+
   /**
   * Controls the active view and button.
   */
@@ -406,7 +411,7 @@ class App {
     }.bind(this));
   }
 
-  /** 
+  /**
   * Creates the answer element in the DOM.
   */
   createAnswerElement(questionId, id, answer, username) {
