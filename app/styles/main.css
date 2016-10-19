@@ -53,19 +53,19 @@ html, body {
 @media (max-width: 512px)  and (min-resolution: 1.5dppx),
        (max-width: 1024px) and (max-resolution: 1.5dppx) {
   #splash-page-section {
-    background-image: url('images/rainbow-background.png');
+    background-image: url('/images/rainbow-background.png');
   }
 }
 @media (min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
        (min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx)  {
   #splash-page-section {
-    background-image: url('images/rainbow-background.png');
+    background-image: url('/images/rainbow-background.png');
   }
 }
 @media (min-width: 1025px) and (min-resolution: 1.5dppx),
        (min-width: 2049px) and (max-resolution: 1.5dppx) {
   #splash-page-section {
-    background-image: url('images/rainbow-background.png');
+    background-image: url('/images/rainbow-background.png');
   }
 }
 
@@ -292,8 +292,8 @@ html, body {
 .mdl-demo .mdl-menu__container {
   z-index: 99;
 }
-/** 
- * Styling for the questions list 
+/**
+ * Styling for the questions list
  */
 .question {
   display: -webkit-flex;
@@ -360,6 +360,6 @@ html, body {
 .question .key {
   font-size: 14px;
 }
-.question .center { 
+.question .center {
   text-align:center;
 }
