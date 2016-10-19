@@ -284,8 +284,11 @@ class App {
     var containerElement = sectionElement.getElementsByClassName('questions-container')[0];
     containerElement.innerHTML = '';
     questionRef.limitToLast(25).once('value', function(data) {
-      console.log('once value', data.val());
       var questions = data.val();
+      if (!questions) {
+        // No data in firebase.
+        return;
+      }
       Object.keys(questions).forEach(function(questionKey) {
         var questionData = questions[questionKey];
         var username = questionData.username || 'Anonymous';
@@ -403,11 +406,21 @@ class App {
     //Clear out old DOM elements.
     var containerElement = document.getElementsByClassName('answers-container')[0];
     containerElement.innerHTML = '';
-    answersForQuestionRef.limitToLast(25).on('child_added', function(data) {
-      var username = data.val().username || 'Anonymous';
-      containerElement.insertBefore(
-        this.createAnswerElement(questionId, data.val().id, data.val().answer, data.val().username),
-        containerElement.firstChild)
+    answersForQuestionRef.limitToLast(25).once('value', function(data) {
+      var answers = data.val();
+      console.log(answers);
+      if (!answers) {
+        // No data in firebase.
+        return;
+      }
+
+      Object.keys(answers).forEach(function(answerKey) {
+        var answerData = answers[answerKey];
+        var username = answerData.username || 'Anonymous';
+        containerElement.insertBefore(
+          this.createAnswerElement(questionId, answerData.id, answerData.answer, answerData.username),
+          containerElement.firstChild)
+      }.bind(this));
     }.bind(this));
   }
 
@@ -448,6 +461,7 @@ class App {
       answer: answer,
       author: username,
     });
+    this.loadAnswersForQuestion(questionId);
   }
 
   /**
