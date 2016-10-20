@@ -293,7 +293,7 @@ class App {
         var questionData = questions[questionKey];
         var username = questionData.username || 'Anonymous';
         containerElement.insertBefore(
-          this.createQuestionElement(questionKey, questionData.title, data.val().questionBody, username, data.val().uid),
+          this.createQuestionElement(questionKey, questionData.title, questionData.questionBody, username, data.val().uid),
           containerElement.firstChild)
       }.bind(this))
     }.bind(this));
