@@ -43,11 +43,11 @@ html, body {
 }
 
 #splash-page-section h3 {
-    color: white;
-    text-shadow: 0px 1px 4px black;
-    border-bottom: 4px solid white;
+    color: black;
+    text-shadow: 1px 0px 0px black;
+    font-size: 40px;
     margin: 7px 21px;
-    padding-bottom: 5px;
+    padding-top: -5px;
 }
 
 @media (max-width: 512px)  and (min-resolution: 1.5dppx),
@@ -56,6 +56,7 @@ html, body {
     background-image: url('/images/rainbow-background.png');
   }
 }
+
 @media (min-width: 513px)  and (max-width: 1024px) and (min-resolution: 1.5dppx),
        (min-width: 1025px) and (max-width: 2048px) and (max-resolution: 1.5dppx)  {
   #splash-page-section {

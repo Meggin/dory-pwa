@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "app",
+    "public": "dist",
     "rewrites": [
       {
         "source": "**",
