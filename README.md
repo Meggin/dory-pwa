@@ -51,5 +51,5 @@ Here are some resources to help you learn more about [building Progressive Web A
 
 * [Your First Progressive Web App codelab](https://codelabs.developers.google.com/codelabs/your-first-pwapp/index.html?index=..%2F..%2Findex#0)
 * [Enable Push Notifications for your Web App](https://codelabs.developers.google.com/codelabs/push-notifications/index.html?index=..%2F..%2Findex#0)
-* [Untangling Deeply Nested Promise Chains(https://philipwalton.com/articles/untangling-deeply-nested-promise-chains/)
+* [Untangling Deeply Nested Promise Chains](https://philipwalton.com/articles/untangling-deeply-nested-promise-chains/)
 * [Lighthouse testing tool](https://github.com/GoogleChrome/lighthouse)
