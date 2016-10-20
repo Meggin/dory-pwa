@@ -6,6 +6,8 @@ Clone, build, create issues, and submit pull requests.
 
 Any and all feedback welcome.
 
+The Diversity Dory uses Firebase for [hosting](https://firebase.google.com/docs/web/setup) and [storage](https://firebase.google.com/docs/database/web/start).
+
 ## Get up and running
 
 1. Get a copy of the code by downloading or cloning this repository.
@@ -44,3 +46,10 @@ $ npm install
 ```
 
 ## Resources
+
+Here are some resources to help you learn more about [building Progressive Web Apps](https://developers.google.com/web/#progressive-web-apps):
+
+* [Your First Progressive Web App codelab](https://codelabs.developers.google.com/codelabs/your-first-pwapp/index.html?index=..%2F..%2Findex#0)
+* [Enable Push Notifications for your Web App](https://codelabs.developers.google.com/codelabs/push-notifications/index.html?index=..%2F..%2Findex#0)
+* [Untangling Deeply Nested Promise Chains(https://philipwalton.com/articles/untangling-deeply-nested-promise-chains/)
+* [Lighthouse testing tool](https://github.com/GoogleChrome/lighthouse)
