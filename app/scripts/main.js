@@ -309,7 +309,6 @@ class App {
           '<div class="pad flex">' +
             '<h4 class="title"></h4>' +
             '<div class="username mdl-color-text--black"></div>' +
-            '<div class="key mdl-color-text--black"></div>' +
             '<div class="questionBody"></div>' +
           '</div>' +
           '<span class="star">' +
@@ -328,7 +327,6 @@ class App {
     var questionElement = div.firstChild;
 
     // Set values.
-    questionElement.getElementsByClassName('key')[0].innerText = questionId;
     questionElement.getElementsByClassName('title')[0].innerText = title;
     questionElement.getElementsByClassName('questionBody')[0].innerText = questionBody;
     questionElement.getElementsByClassName('username')[0].innerText = username || 'Anonymous';
@@ -432,13 +430,13 @@ class App {
     var uid = firebase.auth().currentUser.uid;
 
     var html =
-      '<div class="answer mdl-card mdl-shadow--2dp">' +
+      '<div class="answer demo-card-wide mdl-card mdl-shadow--2dp">' +
         '<div class="header">' +
           '<div>' +
-            '<div class="username mdl-color-text--black"></div>' +
+            '<div class="username mdl-card__title mdl-color-text--black"></div>' +
           '</div>' +
         '</div>' +
-        '<div class="answer"></div>' +
+        '<div class="answer mdl-card__supporting-text"></div>' +
       '</div>';
 
     // Create the DOM element from the HTML.
@@ -468,10 +466,10 @@ class App {
   * Displays question details on answer view.
   */
   showQuestionDetailsForAnswer(questionId, title, questionBody, username) {
-    document.getElementById('questionid-holder').innerText = questionId;
-    document.getElementById('questiontitle-holder').innerText = title;
-    document.getElementById('username').innerText = username;
-    document.getElementById('questiontext-holder').innerText = questionBody;
+    //document.getElementById('questionid-holder').innerText = questionId;
+    document.getElementById('questiontitle-holder').innerText = 'Question: ' + title;
+    document.getElementById('username').innerText = 'Created by: ' + username;
+    document.getElementById('questiontext-holder').innerText = 'Description: ' + questionBody;
   }
 
   /**

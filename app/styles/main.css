@@ -84,7 +84,8 @@ html, body {
 }
 
 .demo-card-wide.mdl-card {
-  width: 800px;
+  width: 398px;
+  height: 228px;
 }
 
 .titlebar {

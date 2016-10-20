@@ -144,17 +144,18 @@
       <h4 id="questiontitle-holder"></h4>
       <div id="username"></div>
       <div id="questiontext-holder"></div>
-      <div>
+      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
         <form id="add-answer" action="#">
-          <div class="mdl-textfield mdl-js-textfield">
-            <input class="mdl-textfield__input" id="answer-input" type="text">
-            <label class="mdl-textfield__label">Your answer...</label>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" rows="3" id="answer-input"></textarea>
+            <label class="mdl-textfield__label" for="new-answer">Your answer goes here...</label>
           </div>
-          <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Answer
+          <button type="submit" id="add-answer" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            Ask
           </button>
         </form>
       </div>
-      <div class="answers-container">TBD.
+      <div class="answers-container">
       </div>
     </section>
 
