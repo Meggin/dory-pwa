@@ -1,6 +1,6 @@
 # Welcome to the Diversity Dory Source Code
 
-This Progressive Web App is built with love using the [Web Starter Kit](https://github.com/google/web-starter-kit).
+The [Diversity Dory PWA](https://diversity-dory-pwa.firebaseapp.com/) is built with love using the [Web Starter Kit](https://github.com/google/web-starter-kit).
 
 Clone, build, create issues, and submit pull requests. 
 
