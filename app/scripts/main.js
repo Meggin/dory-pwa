@@ -241,7 +241,7 @@ class App {
   newQuestionForCurrentUser(questionTitle, questionBody) {
     var userId = firebase.auth().currentUser.uid;
     return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-      var username = snapshot.val().username;
+      var username = snapshot.val() ? snapshot.val().username : 'Anonymous';
       return this.writeNewQuestion(firebase.auth().currentUser.uid, username,
         questionTitle, questionBody);
     }.bind(this));
