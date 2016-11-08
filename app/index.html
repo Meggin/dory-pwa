@@ -71,8 +71,8 @@
   <section id="splash-page-section">
     <h3 class="logo">Diversity Dory</h3>
       <div>
-        <button id="sign-in-with-google-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign in with Google</button>
-        <button id="sign-in-anonymously-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Be anonymous</button>
+        <button id="sign-in-with-google-button" aria-label="Sign in with Google" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign in with Google</button>
+        <button id="sign-in-anonymously-button" aria-label="Sign in anonymously" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Be anonymous</button>
       </div>
   </section>
 
@@ -81,22 +81,21 @@
 
     <div class="mdl-layout__header-row titlebar">
       <h3 class="logo">Diversity Dory</h3>
-      <button id="sign-out-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
+      <button id="sign-out-button" aria-label="Sign out" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
     </div>
 
     <!-- Navigation Bar -->
-    <div class="tab mdl-layout__header-row mdl-color--green-600">
+    <nav class="navigation-bar tab mdl-layout__header-row mdl-color--green-600">
       <div class="mdl-tab">
-        <div id="all-questions-menu" class="mdl-layout__tab is-active mdl-button mdl-js-button mdl-js-ripple-effect">All Questions</div>
-        <div id="my-questions-menu" class="mdl-layout__tab mdl-button mdl-js-button mdl-js-ripple-effect">My questions
-        </div>
+        <button id="all-questions-menu" class="mdl-layout__tab is-active mdl-button mdl-js-button mdl-js-ripple-effect">All Questions</button>
+        <button id="my-questions-menu" class="mdl-layout__tab mdl-button mdl-js-button mdl-js-ripple-effect">My questions</button>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main class="mdl-layout__content mdl-color--grey-100">
 
-    <button id="add-question" class="mdl-button mdl-js-button mdl-button--fab mdl-color--yellow-500 mdl-shadow--4dp mdl-js-ripple-effect"><i class="material-icons">mode_edit</i></button>
+    <button id="add-question" aria-label="Add a question" class="mdl-button mdl-js-button mdl-button--fab mdl-color--yellow-500 mdl-shadow--4dp mdl-js-ripple-effect"><i class="material-icons">mode_edit</i></button>
 
     <!-- Show the add question form -->
     <section id="add-question-section" class="mdl-grid content" style="display:none">
