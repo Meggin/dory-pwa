@@ -229,11 +229,10 @@ class App {
     // Submit a new answer for a question.
     this.submitAnswerForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      console.log('SUBMIT L232 Question ID: ', this._questionId);
       var answer = answerInput.value;
-      var username = document.getElementById('username').innerText;
+      // var username = document.getElementById('username').innerText;
       // var questionId = document.getElementById('questionid-holder').innerText;
-      this.createAnswerInDatabase(this._questionId, answer, username);
+      this.createAnswerInDatabase(this._questionId, answer, this.user.displayName);
       answerInput.value = '';
     }.bind(this));
   }
@@ -366,7 +365,7 @@ class App {
 
     // Open list of actions for a question.
     var onAnswersClicked = function() {
-      console.log('onAnswersClicked...' + questionId);
+      console.log('onAnswersClicked...');
       this._questionId = questionId;
       this.showSection(answersForQuestionSection);
       this.showQuestionDetailsForAnswer(questionId, title, questionBody, username);
@@ -402,7 +401,6 @@ class App {
   * Loads answers for a question from the database.
   */
   loadAnswersForQuestion(questionId) {
-    console.log('Question ID: ' + questionId);
     var myUserId = firebase.auth().currentUser.uid;
     var answersForQuestionRef = firebase.database().ref('question-answers/' + questionId);
     //Clear out old DOM elements.
@@ -410,7 +408,6 @@ class App {
     containerElement.innerHTML = '';
     answersForQuestionRef.limitToLast(25).once('value', function(data) {
       var answers = data.val();
-      console.log(answers);
       if (!answers) {
         // No data in firebase.
         return;
@@ -461,7 +458,7 @@ class App {
     console.log('We are in createanswerindatabase method.......', questionId);
     firebase.database().ref('question-answers/' + questionId).push({
       answer: answer,
-      author: username,
+      username: username,
     });
     this.loadAnswersForQuestion(questionId);
   }
