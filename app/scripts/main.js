@@ -196,6 +196,7 @@ class App {
 
     // Shows a user's list of questions.
     this.myQuestionsMenu.addEventListener('click', function() {
+      this.showAddQuestionButton();
       this.showSection(userQuestionsSection, myQuestionsMenu);
       this.cleanUpUI();
       this.fetchQuestions(userQuestionsSection);
@@ -203,6 +204,7 @@ class App {
 
     // Shows all questions, ranked by ratings.
     this.allQuestionsMenu.addEventListener('click', function() {
+      this.showAddQuestionButton();
       this.showSection(allQuestionsSection, allQuestionsMenu);
       this.cleanUpUI();
       this.fetchQuestions(allQuestionsSection);
@@ -235,6 +237,14 @@ class App {
       this.createAnswerInDatabase(this._questionId, answer, this.user.displayName);
       answerInput.value = '';
     }.bind(this));
+  }
+
+  showAddQuestionButton() {
+    this.addQuestionButton.style.display = 'inline-block';
+  }
+
+  hideAddQuestionButton() {
+    this.addQuestionButton.style.display = 'none';
   }
 
   // Add new question to user's list of questions in database.
@@ -368,6 +378,7 @@ class App {
       console.log('onAnswersClicked...');
       this._questionId = questionId;
       this.showSection(answersForQuestionSection);
+      this.hideAddQuestionButton();
       this.showQuestionDetailsForAnswer(questionId, title, questionBody, username);
       this.cleanUpUI(answersForQuestionSection);
       this.loadAnswersForQuestion(questionId);
@@ -393,7 +404,7 @@ class App {
       sectionElement.style.display = 'block';
     }
     if (buttonElement) {
-    buttonElement.classList.add('is-active');
+      buttonElement.classList.add('is-active');
     }
   }
 
