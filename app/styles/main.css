@@ -194,3 +194,72 @@ html, body {
 .question .center {
   text-align:center;
 }
+
+/* Answer List */
+
+.question-for-answers {
+  flex-direction: column;
+  margin-top: 14px;
+}
+
+.question-for-answers #question-title,
+.question-for-answers #questiontext-holder {
+  margin: 0 0 16px 0;
+}
+
+.question-for-answers #questiontext-holder {
+  font-size: 16px;
+}
+
+.question-for-answers #username {
+  font-style: italic;
+}
+
+.question-for-answers .user-row {
+  display: flex;
+  align-items: center;
+}
+
+.question-for-answers .avatar {
+  margin-right: 16px;
+}
+
+.add-answer-container {
+  margin-bottom: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+}
+
+#add-answer {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+#add-answer .mdl-textfield__label {
+  color: #212121; 
+}
+
+#add-answer .mdl-textfield,
+#add-answer .mdl-textfield__input {
+  width: 100%;
+}
+
+.answers-container .demo-card-wide {
+  width: 100%;
+  height: initial;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  box-shadow: none;
+  min-height: 180px;
+}
+
+.answer .username {
+  font-style: italic;
+}
+
+.answer .answer-text {
+  color: rgba(0,0,0,.87);
+  font-size: 14px;
+}

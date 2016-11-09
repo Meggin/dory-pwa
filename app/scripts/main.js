@@ -437,7 +437,7 @@ class App {
             '<div class="username mdl-card__title mdl-color-text--black"></div>' +
           '</div>' +
         '</div>' +
-        '<div class="answer mdl-card__supporting-text"></div>' +
+        '<div class="answer-text mdl-card__supporting-text"></div>' +
       '</div>';
 
     // Create the DOM element from the HTML.
@@ -445,8 +445,8 @@ class App {
     div.innerHTML = html;
     var answerElement = div.firstChild;
 
-    answerElement.getElementsByClassName('answer')[0].textContent = answer;
-    answerElement.getElementsByClassName('username')[0].textContent = username || 'Anonymous';
+    answerElement.getElementsByClassName('answer-text')[0].textContent = answer;
+    answerElement.getElementsByClassName('username')[0].textContent = (username || 'Anonymous') + ' answered...';
 
     return answerElement;
   }
@@ -467,10 +467,9 @@ class App {
   * Displays question details on answer view.
   */
   showQuestionDetailsForAnswer(questionId, title, questionBody, username) {
-    //document.getElementById('questionid-holder').textContent = questionId;
-    document.getElementById('questiontitle-holder').textContent = 'Question: ' + title;
-    document.getElementById('username').textContent = 'Created by: ' + username;
-    document.getElementById('questiontext-holder').textContent = 'Description: ' + questionBody;
+    document.getElementById('question-title').textContent = title;
+    document.getElementById('username').textContent = username;
+    document.getElementById('questiontext-holder').textContent = questionBody;
   }
 
   /**

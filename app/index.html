@@ -81,7 +81,7 @@
 
     <div class="mdl-layout__header-row titlebar">
       <h3 class="logo">Diversity Dory</h3>
-      <button id="sign-out-button" aria-label="Sign out" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
+      <button id="sign-out-button" aria-label="Sign out" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
     </div>
 
     <!-- Navigation Bar -->
@@ -139,18 +139,24 @@
     </section>
 
     <section class="mdl-grid content" id="answers-for-question" style="display:none">
-      <h4 id="questionid-holder"></h4>
-      <h4 id="questiontitle-holder"></h4>
-      <div id="username"></div>
-      <div id="questiontext-holder"></div>
-      <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+
+      <div class="question question-for-answers">
+        <h4 id="question-title"></h4>
+        <div id="questiontext-holder"></div>
+        <div class="user-row">
+          <img class="avatar" src="images/avatar.png"></img>
+          <div id="username"></div>
+        </div>
+      </div>
+      
+      <div class="add-answer-container mdl-card__supporting-text mdl-color-text--grey-600">
         <form id="add-answer" action="#">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <textarea class="mdl-textfield__input" rows="3" id="answer-input"></textarea>
             <label class="mdl-textfield__label" for="new-answer">Your answer goes here...</label>
           </div>
           <button type="submit" id="add-answer" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-            Ask
+            Answer
           </button>
         </form>
       </div>
