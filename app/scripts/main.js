@@ -230,8 +230,8 @@ class App {
     this.submitAnswerForm.addEventListener('submit', function(e) {
       e.preventDefault();
       var answer = answerInput.value;
-      // var username = document.getElementById('username').innerText;
-      // var questionId = document.getElementById('questionid-holder').innerText;
+      // var username = document.getElementById('username').textContent;
+      // var questionId = document.getElementById('questionid-holder').textContent;
       this.createAnswerInDatabase(this._questionId, answer, this.user.displayName);
       answerInput.value = '';
     }.bind(this));
@@ -307,8 +307,8 @@ class App {
       '<li class="question">' +
           '<img class="avatar" src="images/avatar.png"></img>' +
           '<div class="pad flex">' +
-            '<h4 class="title"></h4>' +
             '<div class="username mdl-color-text--black"></div>' +
+            '<h4 class="title"></h4>' +
             '<div class="questionBody"></div>' +
           '</div>' +
           '<span class="star">' +
@@ -327,9 +327,9 @@ class App {
     var questionElement = div.firstChild;
 
     // Set values.
-    questionElement.getElementsByClassName('title')[0].innerText = title;
-    questionElement.getElementsByClassName('questionBody')[0].innerText = questionBody;
-    questionElement.getElementsByClassName('username')[0].innerText = username || 'Anonymous';
+    questionElement.getElementsByClassName('title')[0].textContent = title;
+    questionElement.getElementsByClassName('questionBody')[0].textContent = questionBody;
+    questionElement.getElementsByClassName('username')[0].textContent = (username || 'Anonymous') + ' asks...';
 
     // Variables for action items.
     var star = questionElement.getElementsByClassName('starred')[0];
@@ -445,8 +445,8 @@ class App {
     div.innerHTML = html;
     var answerElement = div.firstChild;
 
-    answerElement.getElementsByClassName('answer')[0].innerText = answer;
-    answerElement.getElementsByClassName('username')[0].innerText = username || 'Anonymous';
+    answerElement.getElementsByClassName('answer')[0].textContent = answer;
+    answerElement.getElementsByClassName('username')[0].textContent = username || 'Anonymous';
 
     return answerElement;
   }
@@ -467,10 +467,10 @@ class App {
   * Displays question details on answer view.
   */
   showQuestionDetailsForAnswer(questionId, title, questionBody, username) {
-    //document.getElementById('questionid-holder').innerText = questionId;
-    document.getElementById('questiontitle-holder').innerText = 'Question: ' + title;
-    document.getElementById('username').innerText = 'Created by: ' + username;
-    document.getElementById('questiontext-holder').innerText = 'Description: ' + questionBody;
+    //document.getElementById('questionid-holder').textContent = questionId;
+    document.getElementById('questiontitle-holder').textContent = 'Question: ' + title;
+    document.getElementById('username').textContent = 'Created by: ' + username;
+    document.getElementById('questiontext-holder').textContent = 'Description: ' + questionBody;
   }
 
   /**
@@ -511,7 +511,7 @@ class App {
    * Updates the number of stars displayed for a question.
    */
   updateStarCount(questionElement, nbStart) {
-    questionElement.getElementsByClassName('star-count')[0].innerText = nbStart;
+    questionElement.getElementsByClassName('star-count')[0].textContent = nbStart;
   }
 
   /**

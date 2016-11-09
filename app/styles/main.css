@@ -186,6 +186,11 @@ html, body {
 .question .key {
   font-size: 14px;
 }
+
+.question .username {
+  font-style: italic;
+}
+
 .question .center {
   text-align:center;
 }
